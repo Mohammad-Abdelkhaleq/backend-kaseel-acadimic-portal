@@ -1,0 +1,84 @@
+### home route
+GET http://localhost:5000/
+
+### create a new user
+POST http://localhost:5000/signup
+Content-Type: application/json
+
+{
+    "username": "test",
+    "email": "test@gmail.come",
+    "phone": "11",
+    "location": "florida",
+    "password": "test",
+    "role": "admin"
+}
+
+
+### send the credintials in the autherization header after encripting it using base64
+### or any api client that can send the credentials in the header already encoded like thunder client or postman
+### signin
+POST http://localhost:5000/signin
+Authorization: Basic YWRtaW46cGFzc3dvcmQ=
+Content-Type: application/json
+
+{
+    "username": "test",
+    "password": "test"
+}
+
+### check the token
+GET http://localhost:5000/secret
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE3OTc2NjM4fQ.DDriYdG2iKOZJQoEZX2c2fo8KzO4czgjMu5sakRKwCw
+
+### list all users only for admin
+GET http://localhost:5000/users
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE3OTc2NjM4fQ.DDriYdG2iKOZJQoEZX2c2fo8KzO4czgjMu5sakRKwCw
+
+
+###>>>>>>>>>>>>>>>>>>>>>>>>>Course Routes>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+### create a new cousrse 
+POST http://localhost:5000/api/Kassel/courses
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE3OTc2NjM4fQ.DDriYdG2iKOZJQoEZX2c2fo8KzO4czgjMu5sakRKwCw
+Content-Type: application/json
+
+{
+    "name": "love course",
+    "description": "math course",
+    "start_date": "2022-04-01",
+    "end_date": "2022-06-01",
+    "teacher_id": 4
+}
+
+### list all courses
+GET http://localhost:5000/api/Kassel/courses
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE3OTc2NjM4fQ.DDriYdG2iKOZJQoEZX2c2fo8KzO4czgjMu5sakRKwCw 
+
+
+### get a specific course
+GET http://localhost:5000/api/Kassel/courses/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE3OTc2NjM4fQ.DDriYdG2iKOZJQoEZX2c2fo8KzO4czgjMu5sakRKwCw
+
+
+### update a specific course
+PUT http://localhost:5000/api/Kassel/courses/1  
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE3OTc2NjM4fQ.DDriYdG2iKOZJQoEZX2c2fo8KzO4czgjMu5sakRKwCw
+Content-Type: application/json
+
+{
+    "name": "arabic",
+    "description": "super arabic course for all levels",
+    "start_date": "2022-04-01",
+    "end_date": "2022-06-01",
+    "teacher_id": 1
+}
+
+### delete a specific course
+DELETE http://localhost:5000/api/Kassel/courses/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE3OTc2NjM4fQ.DDriYdG2iKOZJQoEZX2c2fo8KzO4czgjMu5sakRKwCw
+
+
+### fetch all courses for a specific teacher
+GET http://localhost:5000/api/Kassel//teachers/4/courses
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE3OTc2NjM4fQ.DDriYdG2iKOZJQoEZX2c2fo8KzO4czgjMu5sakRKwCw
+
